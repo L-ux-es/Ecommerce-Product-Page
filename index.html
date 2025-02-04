@@ -31,9 +31,12 @@
         <a href="#">Contact</a>
     </nav>
     <div class="header-button-container">
-        <button id="button-cart" class="header-button" aria-label="View products in cart"><img id="cart-icon"
-                                                                                               src="images/icon-cart.svg"
-                                                                                               alt="Cart"></button>
+        <div class="cart-container">
+            <button id="button-cart" class="header-button" aria-label="View products in cart"><img id="cart-icon"
+                                                                                                   src="images/icon-cart.svg"
+                                                                                                   alt="Cart"></button>
+            <div id="cart-amount">0</div>
+        </div>
         <button id="button-avatar" class="header-button" aria-label="View profile"><img id="avatar"
                                                                                         src="images/image-avatar.png"
                                                                                         alt="Avatar">
@@ -67,11 +70,13 @@
             </div>
             <div class="count-product-container">
                 <div class="count-buttons-container">
-                    <button class="count-button"><img src="images/icon-minus.svg" alt="-"></button>
-                    <p class="count-product">0</p>
-                    <button class="count-button"><img src="images/icon-plus.svg" alt="+"></button>
+                    <button class="count-button" onclick=decrement("count")><img src="images/icon-minus.svg"
+                                                                                 alt="-"></button>
+                    <div id="count" class="count-product">0</div>
+                    <button class="count-button" onclick=increment("count")><img src="images/icon-plus.svg"
+                                                                                 alt="+"></button>
                 </div>
-                <button class="cart"><img src="images/icon-cart.svg" alt="🛒">Add to cart</button>
+                <button class="add-cart"><img src="images/icon-cart.svg" alt="🛒">Add to cart</button>
             </div>
         </div>
     </div>
@@ -80,5 +85,6 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="#">Leo Sánchez</a>.
 </div>
+<script src="script.js"></script>
 </body>
 </html>
