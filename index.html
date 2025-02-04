@@ -1,44 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | E-commerce product page</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Sneakers Ecommerce Product Page. Buy your Sneakers shoes. See our collections to men
+   and women.">
+    <meta name="keywords" content="Sneakers, shoes, tennis, ecommerce , product page, collections">
+    <meta name="author" content="L-ux-es">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Frontend Mentor | E-commerce product page</title>
 </head>
 <body>
-
-  Collections
-  Men
-  Women
-  About
-  Contact
-
-  Sneaker Company
-
-  Fall Limited Edition Sneakers
-
-  These low-profile sneakers are your perfect casual wear companion. Featuring a 
-  durable rubber outer sole, they’ll withstand everything the weather can offer.
-
-  $125.00
-  50%
-  $250.00
-
-  0
-  Add to cart
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+<header>
+    <div class="header-button-container">
+        <label class="show-menu header-button" for="check" aria-label="Show Menu"><img src="images/icon-menu.svg"
+                                                                                       alt="Menu"></label>
+        <h1 id="logo">sneakers</h1></div>
+    <input type="checkbox" id="check">
+    <nav class="menu" role="navigation" aria-label="Menu">
+        <label class="hide-menu" for="check" aria-label="Close Menu"><img src="images/icon-close.svg"
+                                                                          alt="Close"></label>
+        <a href="#">Collections</a>
+        <a href="#">Men</a>
+        <a href="#">Women</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+    <div class="header-button-container">
+        <button id="button-cart" class="header-button" aria-label="View products in cart"><img id="cart-icon"
+                                                                                               src="images/icon-cart.svg"
+                                                                                               alt="Cart"></button>
+        <button id="button-avatar" class="header-button" aria-label="View profile"><img id="avatar"
+                                                                                        src="images/image-avatar.png"
+                                                                                        alt="Avatar">
+        </button>
+    </div>
+</header>
+<main>
+    <div class="product-container">
+        <div class="product-images-container">
+            <div class="product-image">
+                <img class="principal-image" src="images/image-product-1.jpg" alt="Fall Limited Sneakers">
+            </div>
+            <div class="carrousel-product-images">
+                <!--Add un botón o algo interactivo para que al dar clic cambie la image grande -->
+                <img src="images/image-product-1-thumbnail.jpg" alt="Fall Limited Sneakers miniature 1">
+                <img src="images/image-product-2-thumbnail.jpg" alt="Fall Limited Sneakers miniature 2">
+                <img src="images/image-product-3-thumbnail.jpg" alt="Fall Limited Sneakers miniature 3">
+                <img src="images/image-product-4-thumbnail.jpg" alt="Fall Limited Sneakers miniature 4">
+            </div>
+        </div>
+        <div class="product-description">
+            <h3 class="company-name"> Sneaker Company</h3>
+            <h1>Fall Limited Edition Sneakers</h1>
+            <p class="description">These low-profile sneakers are your perfect casual wear companion. Featuring a
+                durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+            <div class="price-container">
+                <div class="price-discount-container">
+                    <h2>$125.00</h2>
+                    <p class="discount">50%</p></div>
+                <p class="base-price">$250.00</p>
+            </div>
+            <div class="count-product-container">
+                <div class="count-buttons-container">
+                    <button class="count-button"><img src="images/icon-minus.svg" alt="-"></button>
+                    <p class="count-product">0</p>
+                    <button class="count-button"><img src="images/icon-plus.svg" alt="+"></button>
+                </div>
+                <button class="cart"><img src="images/icon-cart.svg" alt="🛒">Add to cart</button>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Leo Sánchez</a>.
+</div>
 </body>
 </html>
