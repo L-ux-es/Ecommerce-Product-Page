@@ -47,8 +47,10 @@
     <div class="product-container">
         <div class="product-images-container">
             <div class="product-image">
-                <img id="mainImage" class="principal-image" src="images/image-product-1.jpg"
-                     alt="Fall Limited Sneakers">
+                <button class="principal-image-button" onclick=openPopup(this.firstElementChild.src)>
+                    <img id="mainImage" class="principal-image"
+                         src="images/image-product-1.jpg"
+                         alt="Fall Limited Sneakers"></button>
             </div>
             <div class="carrousel-product-images">
                 <button onclick=changeImage(this.firstElementChild,'images/image-product-1.jpg')>
@@ -93,6 +95,34 @@
                                                                                  alt="+"></button>
                 </div>
                 <button class="add-cart"><img src="images/icon-cart.svg" alt="🛒">Add to cart</button>
+            </div>
+        </div>
+        <div id="popup" class="popup">
+            <div class="product-images-container popup-content">
+                <button class="close-btn" onclick="closePopup()">X</button>
+                <img id="popupImage" class="principal-image" src="" alt="Product in pop-up window">
+                <div class="carrousel-product-images">
+                    <button onclick=changePopupImage(this.firstElementChild,'images/image-product-1.jpg')>
+                        <img class="thumbnail"
+                             src="images/image-product-1-thumbnail.jpg"
+                             alt="Fall Limited Sneakers miniature 1">
+                    </button>
+                    <button onclick=changePopupImage(this.firstElementChild,'images/image-product-2.jpg')>
+                        <img class="thumbnail"
+                             src="images/image-product-2-thumbnail.jpg"
+                             alt="Fall Limited Sneakers miniature 2">
+                    </button>
+                    <button onclick=changePopupImage(this.firstElementChild,'images/image-product-3.jpg')>
+                        <img class="thumbnail"
+                             src="images/image-product-3-thumbnail.jpg"
+                             alt="Fall Limited Sneakers miniature 3">
+                    </button>
+                    <button onclick=changePopupImage(this.firstElementChild,'images/image-product-4.jpg')>
+                        <img class="thumbnail"
+                             src="images/image-product-4-thumbnail.jpg"
+                             alt="Fall Limited Sneakers miniature 4">
+                    </button>
+                </div>
             </div>
         </div>
     </div>

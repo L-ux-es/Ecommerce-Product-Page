@@ -47,11 +47,32 @@ let calculation = () => {
 
 function changeImage(element, imageSrc) {
     document.getElementById('mainImage').src = imageSrc;
+    setSelectedImage(element);
+}
+
+function changePopupImage(element, imageSrc) {
+    document.getElementById('popupImage').src = imageSrc;
+    setSelectedImage(element);
+}
+
+function setSelectedImage(element) {
     let thumbnails = document.getElementsByClassName('thumbnail');
     for (const thumbnail of thumbnails) {
         thumbnail.classList.remove('selected');
     }
     element.classList.add('selected');
+}
+
+function openPopup(imageSrc) {
+    const desktopResolution = window.innerWidth >= 840;
+    if (desktopResolution) {
+        document.getElementById('popupImage').src = imageSrc;
+        document.getElementById('popup').style.display = 'flex';
+    }
+}
+
+function closePopup() {
+    document.getElementById('popup').style.display = 'none';
 }
 
 calculation();
