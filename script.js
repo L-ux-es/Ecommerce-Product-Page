@@ -1,4 +1,8 @@
 let basket = JSON.parse(localStorage.getItem("data")) || [];
+const cartIcon = document.getElementById("cart-amount");
+const productCard = document.getElementById('product-cart');
+const checkoutButton = document.getElementById('checkout');
+const emptyCard = document.getElementById('empty-card');
 
 let increment = (id) => {
     let selectedItem = id;
@@ -22,7 +26,6 @@ let decrement = (id) => {
     } else {
         search.item -= 1;
     }
-
     update(selectedItem, search.item);
     basket = basket.filter((x) => x.item !== 0);
     localStorage.setItem("data", JSON.stringify(basket));
@@ -34,7 +37,6 @@ let update = (id, item) => {
 };
 
 let calculation = () => {
-    let cartIcon = document.getElementById("cart-amount");
     let count = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
     if (count) {
         cartIcon.style.display = "block";
@@ -42,7 +44,9 @@ let calculation = () => {
     } else {
         cartIcon.style.display = "none";
     }
+    cartItems[0].quantity = count;
     document.getElementById("count").innerHTML = count;
+    displayCartItems();
 };
 
 function changeImage(element, imageSrc) {
@@ -73,6 +77,59 @@ function openPopup(imageSrc) {
 
 function closePopup() {
     document.getElementById('popup').style.display = 'none';
+}
+
+
+let cartItems = [
+    {name: "Fall Limited Edition Sneakers", quantity: 0, price: 125.00, image: 'images/image-product-1.jpg'}
+];
+
+function toggleCartPopup() {
+    const popup = document.getElementById('cartPopup');
+    if (popup.style.display === 'none' || popup.style.display === '') {
+        popup.style.display = 'flex';
+        popup.style.flexDirection = 'column';
+        popup.style.alignItems = 'center'
+        popup.style.gap = '0.5rem';
+        displayCartItems();
+    } else {
+        popup.style.display = 'none';
+    }
+}
+
+function displayCartItems() {
+    const cartItemsContainer = document.getElementById('cartItems');
+    const productImage = document.getElementById('product-image-cart');
+    cartItemsContainer.innerHTML = '';
+    productImage.src = '';
+    if (cartItems[0].quantity > 0) {
+        productCard.style.display = 'flex';
+        checkoutButton.style.display = 'block';
+        emptyCard.style.display = 'none';
+        cartItems.forEach(item => {
+            const itemElement = document.createElement('div');
+            itemElement.innerHTML = `<p>${item.name}</p> <div>$${item.price} x ${item.quantity} <span>$${item.price * item.quantity}</span></div>`
+            cartItemsContainer.appendChild(itemElement);
+            productImage.src = `${item.image}`;
+        });
+    } else {
+        showEmpty();
+    }
+}
+
+function showEmpty() {
+    productCard.style.display = 'none';
+    checkoutButton.style.display = 'none';
+    emptyCard.style.display = 'block';
+}
+
+function emptyCart() {
+    cartItems[0].quantity = 0;
+    basket = [];
+    localStorage.setItem("data", JSON.stringify(basket));
+    displayCartItems();
+    cartIcon.style.display = 'none';
+    document.getElementById('count').innerHTML = '0';
 }
 
 calculation();

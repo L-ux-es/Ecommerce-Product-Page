@@ -32,15 +32,30 @@
     </nav>
     <div class="header-button-container">
         <div class="cart-container">
-            <button id="button-cart" class="header-button" aria-label="View products in cart"><img id="cart-icon"
-                                                                                                   src="images/icon-cart.svg"
-                                                                                                   alt="Cart"></button>
+            <button id="button-cart" class="header-button" onclick="toggleCartPopup()"
+                    aria-label="View products in cart"><img id="cart-icon"
+                                                            src="images/icon-cart.svg"
+                                                            alt="Cart"></button>
             <div id="cart-amount">0</div>
         </div>
         <button id="button-avatar" class="header-button" aria-label="View profile"><img id="avatar"
                                                                                         src="images/image-avatar.png"
                                                                                         alt="Avatar">
         </button>
+    </div>
+    <div id="cartPopup" class="cart-popup">
+        <div class="cart-popup-header">
+            <h4>Cart</h4>
+        </div>
+        <hr>
+        <div id="product-cart">
+            <img id="product-image-cart" class="miniature-image-cart"  src="" alt="">
+            <div id="cartItems">
+            </div>
+            <button class="delete-button" onclick="emptyCart()"><img src="images/icon-delete.svg" alt="Delete"></button>
+        </div>
+        <button id="checkout" class="add-cart">Checkout</button>
+        <div id="empty-card">Your cart is empty.</div>
     </div>
 </header>
 <main>

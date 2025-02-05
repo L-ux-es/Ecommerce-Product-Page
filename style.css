@@ -83,7 +83,84 @@ main {
     border-radius: 0.5rem;
 }
 
+.cart-popup {
+    display: none;
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    width: 20rem;
+    height: 12rem;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-block: 1rem;
+    z-index: 10;
+}
 
+.cart-popup-header {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cart-popup hr {
+    width: 100%;
+    color: var(--Light-grayish-blue);
+}
+
+#product-cart {
+    height: 30%;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.miniature-image-cart {
+    height: 100%;
+    aspect-ratio: 1;
+}
+
+#cartItems {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    color: var(--Dark-grayish-blue);
+}
+
+#cartItems span {
+    color: var(--Black);
+    font-weight: var(--font-weight-bold);
+}
+
+#cartItems div {
+    width: fit-content;
+}
+
+.delete-button {
+
+    height: fit-content;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+#checkout {
+    width: 90%;
+    box-shadow: none;
+}
+#empty-card{
+    width: 90%;
+    height: 100%;
+    display: none;
+    text-align: center;
+    align-content: center;
+}
 .header-button img {
     max-width: 100%;
     height: 100%;
@@ -120,7 +197,6 @@ a {
     text-decoration: none;
     color: var(--Very-dark-blue);
 }
-
 
 .product-container {
     width: 100%;
@@ -288,7 +364,6 @@ a {
     font-weight: var(--font-weight-bold);
 }
 
-
 .add-cart {
     flex: 1;
     background: var(--Orange);
@@ -303,7 +378,6 @@ a {
     margin-right: 0.5rem;
     filter: brightness(0);
 }
-
 
 button:hover {
     cursor: pointer;
@@ -386,7 +460,7 @@ button:hover {
     .product-image {
         max-height: none;
     }
-    
+
     .product-description {
         width: 90%;
         align-self: center;
