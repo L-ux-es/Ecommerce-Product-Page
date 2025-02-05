@@ -1,4 +1,3 @@
-
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 
 let increment = (id) => {
@@ -45,5 +44,14 @@ let calculation = () => {
     }
     document.getElementById("count").innerHTML = count;
 };
+
+function changeImage(element, imageSrc) {
+    document.getElementById('mainImage').src = imageSrc;
+    let thumbnails = document.getElementsByClassName('thumbnail');
+    for (const thumbnail of thumbnails) {
+        thumbnail.classList.remove('selected');
+    }
+    element.classList.add('selected');
+}
 
 calculation();
