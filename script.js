@@ -3,6 +3,15 @@ const cartIcon = document.getElementById("cart-amount");
 const productCard = document.getElementById('product-cart');
 const checkoutButton = document.getElementById('checkout');
 const emptyCard = document.getElementById('empty-card');
+let cartItems = [
+    {
+        name: "Fall Limited Edition Sneakers",
+        quantity: 0,
+        price: 125.00,
+        image: ['images/image-product-1.jpg', 'images/image-product-2.jpg', 'images/image-product-3.jpg',
+            'images/image-product-4.jpg']
+    }
+];
 
 let increment = (id) => {
     let selectedItem = id;
@@ -56,6 +65,7 @@ function changeImage(element, imageSrc) {
 
 function changePopupImage(element, imageSrc) {
     document.getElementById('popupImage').src = imageSrc;
+    document.getElementById('mainImage').src = imageSrc;
     setSelectedImage(element);
 }
 
@@ -78,11 +88,6 @@ function openPopup(imageSrc) {
 function closePopup() {
     document.getElementById('popup').style.display = 'none';
 }
-
-
-let cartItems = [
-    {name: "Fall Limited Edition Sneakers", quantity: 0, price: 125.00, image: 'images/image-product-1.jpg'}
-];
 
 function toggleCartPopup() {
     const popup = document.getElementById('cartPopup');
@@ -110,7 +115,7 @@ function displayCartItems() {
             const itemElement = document.createElement('div');
             itemElement.innerHTML = `<p>${item.name}</p> <div>$${item.price} x ${item.quantity} <span>$${item.price * item.quantity}</span></div>`
             cartItemsContainer.appendChild(itemElement);
-            productImage.src = `${item.image}`;
+            productImage.src = `${item.image[0]}`;
         });
     } else {
         showEmpty();
@@ -130,6 +135,29 @@ function emptyCart() {
     displayCartItems();
     cartIcon.style.display = 'none';
     document.getElementById('count').innerHTML = '0';
+}
+
+function nextImage(id) {
+    const [images, index] = getImagesAndIndex(id);
+    if (index !== -1 && index < images.length - 1) {
+        document.getElementById('popupImage').src = images[index + 1];
+        document.getElementById('mainImage').src = images[index + 1];
+    }
+}
+
+function previousImage(id) {
+    const [images, index] = getImagesAndIndex(id);
+    if (index > 0) {
+        document.getElementById('popupImage').src = images[index - 1];
+        document.getElementById('mainImage').src = images[index - 1];
+    }
+}
+
+function getImagesAndIndex(id) {
+    const images = cartItems[0].image;
+    const imageActual = document.getElementById(id).src;
+    const index = images.findIndex(x => imageActual.includes(x));
+    return [images, index];
 }
 
 calculation();
