@@ -180,7 +180,7 @@ main {
     height: 100%;
     align-content: center;
     font-weight: var(--font-weight-bold);
-    color: var(--Grayish-blue);
+    color: var(--Dark-grayish-blue);
 }
 
 .menu a:hover {
