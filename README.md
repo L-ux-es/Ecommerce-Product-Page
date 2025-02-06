@@ -41,8 +41,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [News Homepage](https://github.com/L-ux-es/Ecommerce-Product-Page)
-- Live Site URL: [Frontend Mentor | News Homepage solution](https://l-ux-es.github.io/Ecommerce-Product-Page/)
+- Solution URL: [Ecommerce Product Page](https://github.com/L-ux-es/Ecommerce-Product-Page)
+- Live Site URL: [Frontend Mentor | Ecommerce Product Page solution](https://l-ux-es.github.io/Ecommerce-Product-Page/)
 
 ## My process
 
